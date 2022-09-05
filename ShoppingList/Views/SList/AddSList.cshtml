@@ -1,0 +1,23 @@
+﻿@model Entity.SList
+
+@{
+    ViewBag.Title = "MyList";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<h2>Yeni Liste</h2>
+<br />
+@using (Html.BeginForm("AddSList", "SList", FormMethod.Post))
+{
+<div class="form-group">
+    <input type="hidden" name="SListId" value="@ViewBag.vlc" />
+    @Html.Label("Liste Adı")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(x => x.Name)*@
+    <br />
+        @Html.Label("Kullanıcı ID")
+        @Html.TextBoxFor(x => x.UserId, new { @class = "form-control" })
+    <button class="btn btn-info">Listeyi Oluştur</button>
+</div>
+}

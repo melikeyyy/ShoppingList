@@ -1,0 +1,20 @@
+﻿@using Entity
+@model List<Product>
+
+@{
+    ViewBag.Title = "GameByCategory";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>

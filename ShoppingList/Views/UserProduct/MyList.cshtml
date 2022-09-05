@@ -1,0 +1,76 @@
+﻿@using Entity
+@model List<Product>
+
+@{
+    ViewBag.Title = "MyList";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    //var UserId = (int)ViewBag.listId;
+}
+
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+
+                <!-- Timelime example  -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- The time line -->
+                        <div class="timeline">
+                            <!-- timeline time label -->
+                            
+                            @foreach (var item in Model)
+                            {
+                               
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <div>
+                                    <i class="fas fa-user-circle bg-blue"></i>
+
+                                    <div class="timeline-item">
+
+                                        @*<h3 class="timeline-header"><a href="/Default/Games/@item.SListId">@item.User.UserName</a></h3>*@
+                                        <div class="timeline-body">
+                                            @item.Name
+                                         
+                                        </div>
+                                        <div class="timeline-body">
+                                            @item.Comment
+
+                                        </div>
+                                        @*<a href="@Url.Action("DeleteProduct", "UserProduct", new {id =item.SListId, userId= UserId})" class="btn btn-primary">Ürün Sil</a>*@
+                                        <li class="breadcrumb-item"><a href="/UserProduct/DeleteProduct/@item.Id">Ürünü Sil</a></li>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="timeline-item">
+                                        @*<h3 class="timeline-header"><a href="#">@item.</a></h3>*@
+                                    </div>
+                                </div>
+                                <!-- END timeline item -->
+                            }
+
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="/UserProduct/GetAllProductByUser">Listeye Ürün Ekle</a></li>
+                                    @*<li class="breadcrumb-item"><a href="/UserProduct/DeleteList">Listeyi Sil</a></li>*@
+                                    @*<li class="breadcrumb-item active">Contacts</li>*@
+                                </ol>
+                            </div>
+                         
+
+                        </div>
+                    </div>
+                    <!-- /.col -->
+               
+            </div>
+            <!-- /.timeline -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- ./wrapper -->
+</body>
+</html>

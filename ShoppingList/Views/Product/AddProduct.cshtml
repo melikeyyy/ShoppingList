@@ -1,0 +1,42 @@
+﻿@model Entity.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>AddGame</h2>
+<br />
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Ürün İsmi")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @Html.Label("Kategori Adı")
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />
+        @Html.Label("Ürün Açıklaması")
+        @Html.TextBoxFor(x => x.Comment, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Comment)
+        <br />
+        @Html.Label("Ürün Görseli")
+        @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Image)
+        <br />
+        @Html.Label("Ürün Anahtar Kelimesi")
+        @Html.TextBoxFor(x => x.Key, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Key)
+        <br />
+        @Html.Label("Ürün Fiyatı")
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Price)
+        <br />
+        @Html.Label("Stok Adet")
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Quantity)
+        <br />
+        <button class="btn btn-info">Ürün Ekle</button>
+    </div>
+}

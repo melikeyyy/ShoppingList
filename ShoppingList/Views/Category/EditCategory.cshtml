@@ -1,0 +1,25 @@
+﻿@model Entity.Category
+
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Kategori Güncelleme Ekranı</h2>
+@using (Html.BeginForm("EditCategory", "Category", FormMethod.Post))
+{
+    <div claass="form-group">
+        @Html.Label("Kategori Id")
+        @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br />
+        @*@Html.Label("Category Name")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />*@
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+    
+}
+

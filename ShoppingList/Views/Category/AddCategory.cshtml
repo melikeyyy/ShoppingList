@@ -1,0 +1,22 @@
+﻿@model Entity.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Kategori Oluşturma Ekranı</h2>
+<br />
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @*@Html.Label("Category")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />*@
+        <button class="btn btn-info">Kategori Oluştur</button>
+    </div>
+}
